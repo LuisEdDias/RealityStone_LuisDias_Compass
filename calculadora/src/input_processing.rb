@@ -18,7 +18,7 @@ class Input
             puts "Número inválido! Tente novamente."
             false
         else
-            number
+            number.to_f
         end
     end 
 end

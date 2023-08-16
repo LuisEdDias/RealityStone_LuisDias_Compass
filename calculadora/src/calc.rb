@@ -3,28 +3,28 @@ class Calc
 
     def addition(number)
         unless !number
-            @calculate += " + #{number.to_f}"
+            @calculate += " + #{number}"
         end
     end
 
     def subtraction(number)
         unless !number
-            @calculate += " - #{number.to_f}"
+            @calculate += " - #{number}"
         end
     end
 
     def multiplication(number)
         unless !number
-            @calculate += " * #{number.to_f}"
+            @calculate += " * #{number}"
         end
     end
 
     def division(number)
         unless !number
-            if number == "0"
+            if number == 0
                 puts "Não é possível dividir por zero! Tente novamente."
             else
-                @calculate += " / #{number.to_f}"
+                @calculate += " / #{number}"
             end
         end
     end

@@ -1,6 +1,6 @@
 require 'rspec'
-require_relative '../app/input_processing'
-require_relative '../app/calc'
+require_relative '../src/input_processing'
+require_relative '../src/calc'
 
 
 describe 'Class Input -> input_start' do
