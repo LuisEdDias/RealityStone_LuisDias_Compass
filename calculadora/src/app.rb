@@ -2,7 +2,6 @@ require_relative 'input_processing'
 require_relative 'calc'
 
 data = Input.new
-calc = Calc.new
 
 puts "*****************************************************************"
 puts "---------------------------CALCULADORA---------------------------"
@@ -23,7 +22,7 @@ loop do
             number = data.input_float(gets.chomp)
         end
 
-        calc.calculate = "#{number.to_f}"
+        calc = Calc.new("#{number}")
         
         loop do
             puts "*****************************************************************"

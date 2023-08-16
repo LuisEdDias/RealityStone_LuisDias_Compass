@@ -1,5 +1,9 @@
 class Calc
     attr_accessor :calculate
+    
+    def initialize(number)
+        @calculate = number
+    end
 
     def addition(number)
         unless !number

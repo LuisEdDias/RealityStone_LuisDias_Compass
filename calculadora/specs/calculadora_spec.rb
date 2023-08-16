@@ -67,3 +67,17 @@ describe 'Class Input -> input_float' do
         expect(input.input_float('')).to eq(false)
     end
 end
+
+describe 'Class Calc -> addition' do
+    it 'updates the var calculate for addition' do
+      calc = Calc.new('1.0')
+      calc.addition(5.0)
+      expect(calc.calculate).to eq('1.0 + 5.0')
+    end
+
+    it 'does not update the var calculate for false' do
+      calc = Calc.new('5.0')
+      calc.addition(false)
+      expect(calc.calculate).to eq('5.0')
+    end
+  end
