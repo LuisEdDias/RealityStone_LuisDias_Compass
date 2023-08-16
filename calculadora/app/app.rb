@@ -14,13 +14,20 @@ loop do
     option = data.input_start(gets.chomp)
     
     if option == 1
-        puts "*****************************************************************"
-        print "-> "
-        puts "Digite o primeiro número:"
-        number = data.input_float(gets.chomp)
-        calc.calculate = number 
+        number = false
+
+        while !number
+            puts "*****************************************************************"
+            print "-> "
+            puts "Digite o primeiro número:"
+            number = data.input_float(gets.chomp)
+        end
+
+        calc.calculate = "#{number.to_f}"
         
         loop do
+            puts "*****************************************************************"
+            puts "Seu calculo até agora -> (#{calc.calculate})"
             puts "*****************************************************************"
             puts "Selecione a operação:"
             puts "1 - SOMA"

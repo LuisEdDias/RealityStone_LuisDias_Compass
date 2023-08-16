@@ -15,6 +15,7 @@ class Input
         end
 
         if !isValid
+            puts "Número inválido! Tente novamente."
             false
         else
             number
