@@ -1,0 +1,23 @@
+class Input
+    def input_start(option)
+        if option.to_i.to_s != option
+            "INVALID"
+        else
+            option.to_i
+        end
+    end 
+
+    def input_float(number)
+        begin
+            isValid = !!Float(number)
+        rescue
+            isValid = false
+        end
+
+        if !isValid
+            false
+        else
+            number
+        end
+    end 
+end
