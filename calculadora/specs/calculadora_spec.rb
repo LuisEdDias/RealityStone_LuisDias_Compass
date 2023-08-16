@@ -13,7 +13,12 @@ describe 'Class Input -> input_start' do
         input = Input.new
         expect(input.input_start('0')).to eq(0)
     end
-  
+    
+    it 'returns "INVALID" for negative numbers' do
+        input = Input.new
+        expect(input.input_start('-1')).to eq("INVALID")
+    end
+
     it 'returns "INVALID" for letters' do
         input = Input.new
         expect(input.input_start('invalid')).to eq("INVALID")
@@ -40,6 +45,11 @@ describe 'Class Input -> input_float' do
     it 'returns a float for string float' do
         input = Input.new
         expect(input.input_float('3.14')).to eq(3.14)
+    end
+
+    it 'returns a negative float for negative string number' do
+        input = Input.new
+        expect(input.input_float('-5')).to eq(-5.0)
     end
     
     it 'returns false for letters' do
