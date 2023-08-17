@@ -1,7 +1,7 @@
+#encoding: UTF-8
 require 'rspec'
 require_relative '../src/input_processing'
 require_relative '../src/calc'
-
 
 describe 'Class Input -> input_start' do
     it 'returns 1 for input "1"' do
@@ -69,15 +69,99 @@ describe 'Class Input -> input_float' do
 end
 
 describe 'Class Calc -> addition' do
-    it 'updates the var calculate for addition' do
-      calc = Calc.new('1.0')
-      calc.addition(5.0)
-      expect(calc.calculate).to eq('1.0 + 5.0')
+    it 'updates the var calculate for float' do
+        calc = Calc.new('1.0')
+        calc.addition(5.0)
+        expect(calc.calculate).to eq('1.0 + 5.0')
+    end
+
+    it 'updates the var calculate for negative float' do
+        calc = Calc.new('1.0')
+        calc.addition(-5.0)
+        expect(calc.calculate).to eq('1.0 + -5.0')
     end
 
     it 'does not update the var calculate for false' do
-      calc = Calc.new('5.0')
-      calc.addition(false)
-      expect(calc.calculate).to eq('5.0')
+        calc = Calc.new('1.0')
+        calc.addition(false)
+        expect(calc.calculate).to eq('1.0')
     end
-  end
+end
+
+describe 'Class Calc -> subtraction' do
+    it 'updates the var calculate for float' do
+        calc = Calc.new('1.0')
+        calc.subtraction(5.0)
+        expect(calc.calculate).to eq('1.0 - 5.0')
+    end
+
+    it 'updates the var calculate for negative float' do
+        calc = Calc.new('1.0')
+        calc.subtraction(-5.0)
+        expect(calc.calculate).to eq('1.0 - -5.0')
+    end
+
+    it 'does not update the var calculate for false' do
+        calc = Calc.new('1.0')
+        calc.subtraction(false)
+        expect(calc.calculate).to eq('1.0')
+    end
+end
+
+describe 'Class Calc -> multiplication' do
+    it 'updates the var calculate for float' do
+        calc = Calc.new('1.0')
+        calc.multiplication(5.0)
+        expect(calc.calculate).to eq('1.0 * 5.0')
+    end
+
+    it 'updates the var calculate for negative float' do
+        calc = Calc.new('1.0')
+        calc.multiplication(-5.0)
+        expect(calc.calculate).to eq('1.0 * -5.0')
+    end
+
+    it 'does not update the var calculate for false' do
+        calc = Calc.new('1.0')
+        calc.multiplication(false)
+        expect(calc.calculate).to eq('1.0')
+    end
+end
+
+describe 'Class Calc -> division' do
+    it 'updates the var calculate for float' do
+        calc = Calc.new('1.0')
+        calc.division(5.0)
+        expect(calc.calculate).to eq('1.0 / 5.0')
+    end
+
+    it 'updates the var calculate for negative float' do
+        calc = Calc.new('1.0')
+        calc.division(-5.0)
+        expect(calc.calculate).to eq('1.0 / -5.0')
+    end
+
+    it 'does not update the var calculate for false' do
+        calc = Calc.new('1.0')
+        calc.division(false)
+        expect(calc.calculate).to eq('1.0')
+    end
+
+    it 'does not update the calculation when dividing by zero' do
+        calc = Calc.new('1.0')
+        calc.division(0.0)
+        expect(calc.calculate).to eq('1.0')
+    end
+end
+
+describe '#equal' do
+    it 'prints the correct result for addition' do
+        calc = Calc.new('1.0')
+        calc.addition(5.0)
+        calc.subtraction(3.0)
+        calc.multiplication(2.0)
+        calc.division(2.0)
+        expected_output = "*****************************************************************\nO resultado para (1.0 + 5.0 - 3.0 * 2.0 / 2.0) = -> 3.0\n"
+        expect { calc.equal }.to output(expected_output).to_stdout
+    end
+end

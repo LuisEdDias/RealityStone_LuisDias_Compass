@@ -35,7 +35,7 @@ class Calc
 
     def equal
         puts "*****************************************************************"
-        print "O resultado para (#{@calculate}) é -> "
+        print "O resultado para (#{@calculate}) = -> "
         puts eval @calculate
     end
 end
