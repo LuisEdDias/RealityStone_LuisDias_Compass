@@ -1,4 +1,3 @@
-#encoding: UTF-8
 require 'rspec'
 require_relative '../src/input_processing'
 require_relative '../src/calc'
@@ -154,7 +153,7 @@ describe 'Class Calc -> division' do
     end
 end
 
-describe '#equal' do
+describe 'Class Calc -> equal' do
     it 'prints the correct result for addition' do
         calc = Calc.new('1.0')
         calc.addition(5.0)

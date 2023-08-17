@@ -1,4 +1,7 @@
+# Handles data input.
 class Input
+    # Validates data entry for the options.
+    # If true returns a integer else returns "INVALID".
     def input_start(option)
         if option.to_i.to_s != option || option.to_i < 0
             "INVALID"
@@ -7,6 +10,8 @@ class Input
         end
     end 
 
+    # Validates data entry for the options.
+    # If true returns a float else returns false.
     def input_float(number)
         begin
             isValid = !!Float(number)
