@@ -17,18 +17,20 @@ loop do
     
     # Checks the option chosen by the user.
     if option == 1
+        # Creates an instance of class Calc.
+        calc = Calc.new
+        
         output.first_number
         number = input.input_float(gets.chomp)
 
         # While number is false asks for a new number.
         while !number
-            output.invalid_number
             output.first_number
             number = input.input_float(gets.chomp)
         end
 
         # Creates an instance of class Calc receiving number as a parameter.
-        calc = Calc.new("#{number}")
+        calc.start(number)
         
         # Loop for selecting operations.
         loop do
@@ -53,6 +55,10 @@ loop do
                 output.next_number
                 number = input.input_float(gets.chomp)
                 calc.division(number)
+            when 5
+                output.delete_confirme
+                delete = input.input_option(gets.chomp)
+                calc.delete_last(delete)
             when 0
                 calc.equal
                 break

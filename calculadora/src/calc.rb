@@ -5,15 +5,20 @@ class Calc
     attr_accessor :calculate, :output
 
     # Creates an instance of class Output.
-    # Initializes the array with a float.
-    def initialize(number)
+    # Initializes the array calculate.
+    def initialize
         @output = Output.new
-        @calculate = ["#{number}"]
+        @calculate = []
     end
 
-    # Turns the calculate array into a string.
+    # Turns the array calculate into a string.
     def calculate_string
         @calculate.join
+    end
+
+    # If the number is not false adds a float to array calculate.
+    def start(number)
+        number ? @calculate << "#{number}" : @output.invalid_number
     end
 
     # If the number is not false adds the plus sign and a float at the end of array calculate
@@ -34,7 +39,7 @@ class Calc
         number ? @calculate << " * #{number}" : @output.invalid_number
     end
 
-    # If the number is false prints error message else checks if the number is different from zero.
+    # If number is false prints error message else checks if number is different from zero.
     # If is true adds the division sign and a float at the end of array calculate else prints error message.
     def division(number)
         if number
@@ -49,7 +54,19 @@ class Calc
         
     end
 
-    #def delete_last
+    # If delete is equals 1 checks if the array is empty. If it is, print an error message 
+    # else delete the last array element.
+    # If delete is equals 0 prints a message for delete canceled.
+    # If delete is any other answer prints for invalid option.
+    def delete_last(delete)
+        if delete == 1
+            @calculate.empty? ? @output.delete_error : @calculate.pop
+        elsif delete == 0
+            @output.delete_canceled
+        else
+            @output.invalid_option
+        end
+    end
 
 
     # Prints the answer calculated by the eval method that receives the variable calculate_string as a parameter.

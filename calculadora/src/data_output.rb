@@ -30,6 +30,7 @@ class Output
         puts "2 - SUBTRAÇÃO"
         puts "3 - MULTIPLICAÇÃO"
         puts "4 - DIVISÃO"
+        puts "5 - APAGAR ÚLTIMA OPERAÇÃO"
         puts "0 - RESULTADO"
         print "-> "
     end
@@ -62,6 +63,23 @@ class Output
     # Prints error message for division by zero.
     def division_zero
         puts "Não é possível dividir por zero! Tente novamente."
+    end
+
+    # Prints message to confirme delete.
+    def delete_confirme
+        puts "*****************************************************************"
+        puts "Você tem certeza que quer apagar a última operação? Digite 1 - SIM ou 0 - NÃO"
+        print "-> "
+    end
+
+    # Prints message for delete canceled.
+    def delete_canceled
+        puts "Nada foi apagado!"
+    end
+
+    # Prints error message for delete.
+    def delete_error
+        puts "Não há nada para apagar!"
     end
 
     # Prints message for result.
