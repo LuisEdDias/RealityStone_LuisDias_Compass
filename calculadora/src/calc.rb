@@ -42,8 +42,7 @@ class Calc
 
     # Prints the answer calculated by the eval method that receives the variable @calculate as a parameter.
     def equal
-        puts "*****************************************************************"
-        print "O resultado para (#{@calculate}) = -> "
+        print "O resultado para (#{@calculate}) é -> "
         puts eval @calculate
     end
 end
