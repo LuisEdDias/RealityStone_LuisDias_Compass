@@ -30,35 +30,35 @@ loop do
         end
 
         # Creates an instance of class Calc receiving number as a parameter.
-        calc.start(number)
+        calc.start number
         
         # Loop for selecting operations.
         loop do
             output.output_menu(calc.calculate_string)
             operation = input.input_option(gets.chomp)
 
-            # Performs the selected operation.
+            # Execute the selected operation.
             case operation
             when 1
                 output.next_number
                 number = input.input_float(gets.chomp)
-                calc.addition(number)
+                calc.addition number
             when 2
                 output.next_number
                 number = input.input_float(gets.chomp)
-                calc.subtraction(number)
+                calc.subtraction number
             when 3
                 output.next_number
                 number = input.input_float(gets.chomp)
-                calc.multiplication(number)
+                calc.multiplication number
             when 4
                 output.next_number
                 number = input.input_float(gets.chomp)
-                calc.division(number)
+                calc.division number
             when 5
                 output.delete_confirme
                 delete = input.input_option(gets.chomp)
-                calc.delete_last(delete)
+                calc.delete_last delete
             when 0
                 calc.equal
                 break
@@ -66,7 +66,6 @@ loop do
                 output.invalid_operation
             end
         end
-
     elsif option == 0
         output.output_bye
         break

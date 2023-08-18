@@ -1,6 +1,5 @@
 # Handles data output.
 class Output
-
     # Prints the header.
     def output_head
         puts "*****************************************************************"
@@ -23,7 +22,7 @@ class Output
 
     # Prints the menu.
     def output_menu(calculate)
-        puts "Seu calculo até agora -> (#{calculate})"
+        puts "Seu calculo até agora -> ( #{ calculate } )"
         puts "*****************************************************************"
         puts "Selecione a operação:"
         puts "1 - SOMA"
@@ -85,7 +84,7 @@ class Output
     # Prints message for result.
     def message_result(calculate_string)
         puts "*****************************************************************"
-        print "O resultado para (#{calculate_string}) é -> "
+        print "O resultado para (#{ calculate_string }) é -> "
     end
 
     # Prints the final message.

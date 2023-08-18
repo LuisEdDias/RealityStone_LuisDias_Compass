@@ -51,6 +51,9 @@ Digite 0 para obter o resultado da operação.
 <img src="https://lh3.googleusercontent.com/pw/AIL4fc80arCQXXpIW6c_aR1HBxb70XYi7kJ4liJmlTIpIjr_pjGFQ-_vPa_yLI-0kBxp_COdrcbW_rhRceSLLKu2uDgULJvzBxXA6VHx-Vrp4Xc2GptzXYU-YPJ5e823gFTBVvTX9wftXf_EnxxAHv50PANo=w841-h689-s-no?authuser=0" tittle="calculadora">
 
 ## Referências
+### Ruby Style Guide
+   * https://github.com/airbnb/ruby
+   
 ### Válidação dos inputs
    * https://gist.github.com/edygar/c1d637f354d6b7806b38
 
