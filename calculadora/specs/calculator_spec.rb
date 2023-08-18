@@ -73,17 +73,18 @@ describe 'Class Calc -> addition' do
 
     it 'updates the var calculate for float' do
         @calc.addition(5.0)
-        expect(@calc.calculate).to eq('1.0 + 5.0')
+        expect(@calc.calculate_string).to eq('1.0 + 5.0')
     end
 
     it 'updates the var calculate for negative float' do
         @calc.addition(-5.0)
-        expect(@calc.calculate).to eq('1.0 + -5.0')
+        expect(@calc.calculate_string).to eq('1.0 + -5.0')
     end
 
-    it 'does not update the var calculate for false' do
-        @calc.addition(false)
-        expect(@calc.calculate).to eq('1.0')
+    it 'print error message for false' do
+        expect{@calc.addition(false)}.to output(
+            "*****************************************************************\n" + 
+            "Número inválido! Tente novamente.\n").to_stdout
     end
 end
 
@@ -95,17 +96,18 @@ describe 'Class Calc -> subtraction' do
 
     it 'updates the var calculate for float' do
         @calc.subtraction(5.0)
-        expect(@calc.calculate).to eq('1.0 - 5.0')
+        expect(@calc.calculate_string).to eq('1.0 - 5.0')
     end
 
     it 'updates the var calculate for negative float' do
         @calc.subtraction(-5.0)
-        expect(@calc.calculate).to eq('1.0 - -5.0')
+        expect(@calc.calculate_string).to eq('1.0 - -5.0')
     end
 
-    it 'does not update the var calculate for false' do
-        @calc.subtraction(false)
-        expect(@calc.calculate).to eq('1.0')
+    it 'print error message for false' do
+        expect{@calc.subtraction(false)}.to output(
+            "*****************************************************************\n" + 
+            "Número inválido! Tente novamente.\n").to_stdout
     end
 end
 
@@ -117,17 +119,18 @@ describe 'Class Calc -> multiplication' do
 
     it 'updates the var calculate for float' do
         @calc.multiplication(5.0)
-        expect(@calc.calculate).to eq('1.0 * 5.0')
+        expect(@calc.calculate_string).to eq('1.0 * 5.0')
     end
 
     it 'updates the var calculate for negative float' do
         @calc.multiplication(-5.0)
-        expect(@calc.calculate).to eq('1.0 * -5.0')
+        expect(@calc.calculate_string).to eq('1.0 * -5.0')
     end
 
-    it 'does not update the var calculate for false' do
-        @calc.multiplication(false)
-        expect(@calc.calculate).to eq('1.0')
+    it 'print error message for false' do
+        expect{@calc.multiplication(false)}.to output(
+            "*****************************************************************\n" + 
+            "Número inválido! Tente novamente.\n").to_stdout
     end
 end
 
@@ -139,31 +142,34 @@ describe 'Class Calc -> division' do
 
     it 'updates the var calculate for float' do
         @calc.division(5.0)
-        expect(@calc.calculate).to eq('1.0 / 5.0')
+        expect(@calc.calculate_string).to eq('1.0 / 5.0')
     end
 
     it 'updates the var calculate for negative float' do
         @calc.division(-5.0)
-        expect(@calc.calculate).to eq('1.0 / -5.0')
+        expect(@calc.calculate_string).to eq('1.0 / -5.0')
     end
 
-    it 'does not update the var calculate for false' do
-        @calc.division(false)
-        expect(@calc.calculate).to eq('1.0')
+    it 'print error message for false' do
+        expect{@calc.division(false)}.to output(
+            "*****************************************************************\n" + 
+            "Número inválido! Tente novamente.\n").to_stdout
     end
 
-    it 'does not update the calculation when dividing by zero' do
+    it 'print error message for division by zero' do
         expect {@calc.division(0.0)}.to output("Não é possível dividir por zero! Tente novamente.\n").to_stdout
     end
 end
 
 describe 'Class Calc -> equal' do
-    it 'prints the correct result for addition' do
+    it 'prints the correct result for the calculation' do
         calc = Calc.new('1.0')
         calc.addition(5.0)
         calc.subtraction(3.0)
         calc.multiplication(2.0)
         calc.division(2.0)
-        expect {calc.equal}.to output("O resultado para (1.0 + 5.0 - 3.0 * 2.0 / 2.0) é -> 3.0\n").to_stdout
+        expect {calc.equal}.to output(
+            "*****************************************************************\n" +
+            "O resultado para (1.0 + 5.0 - 3.0 * 2.0 / 2.0) é -> 3.0\n").to_stdout
     end
 end

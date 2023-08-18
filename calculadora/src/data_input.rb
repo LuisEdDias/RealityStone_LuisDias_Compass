@@ -6,7 +6,7 @@ class Input
         option.to_i.to_s != option || option.to_i < 0 ? false : option.to_i
     end 
 
-    # Validates data entry for the options.
+    # Validates data entry for the calculation.
     # If true returns a float else returns false.
     def input_float(number)
         begin

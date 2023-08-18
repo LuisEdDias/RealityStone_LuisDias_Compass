@@ -32,7 +32,7 @@ loop do
         
         # Loop for selecting operations.
         loop do
-            output.output_menu(calc.calculate)
+            output.output_menu(calc.calculate_string)
             operation = input.input_option(gets.chomp)
 
             # Performs the selected operation.
@@ -40,19 +40,19 @@ loop do
             when 1
                 output.next_number
                 number = input.input_float(gets.chomp)
-                number ? calc.addition(number) : output.invalid_number
+                calc.addition(number)
             when 2
                 output.next_number
                 number = input.input_float(gets.chomp)
-                number ? calc.subtraction(number) : output.invalid_number
+                calc.subtraction(number)
             when 3
                 output.next_number
                 number = input.input_float(gets.chomp)
-                number ? calc.multiplication(number) : output.invalid_number
+                calc.multiplication(number)
             when 4
                 output.next_number
                 number = input.input_float(gets.chomp)
-                number ? calc.division(number) : output.invalid_number
+                calc.division(number)
             when 0
                 calc.equal
                 break

@@ -1,48 +1,60 @@
+require_relative 'data_output'
+
 # Creates a string with valid input data and executes the calculation.
 class Calc
-    attr_accessor :calculate
+    attr_accessor :calculate, :output
 
-    # Initializes the string with a valid number.
+    # Creates an instance of class Output.
+    # Initializes the array with a float.
     def initialize(number)
-        @calculate = number
+        @output = Output.new
+        @calculate = ["#{number}"]
     end
 
-    # Adds the plus sign and a float to the string if number is not false.
+    # Turns the calculate array into a string.
+    def calculate_string
+        @calculate.join
+    end
+
+    # If the number is not false adds the plus sign and a float at the end of array calculate
+    # else prints error message.
     def addition(number)
-        unless !number
-            @calculate += " + #{number}"
-        end
+        number ? @calculate << " + #{number}" : @output.invalid_number
     end
 
-    # Adds the minus sign and a float to the string if number is not false.
+    # If the number is not false adds the minus sign and a float at the end of array calculate
+    # else prints error message.
     def subtraction(number)
-        unless !number
-            @calculate += " - #{number}"
-        end
+        number ? @calculate << " - #{number}" : @output.invalid_number
     end
 
-    # Adds the multiplication sign and a float to the string if number is not false.
+    # If the number is not false adds the multiplication sign and a float at the end of array calculate
+    # else prints error message.
     def multiplication(number)
-        unless !number
-            @calculate += " * #{number}"
-        end
+        number ? @calculate << " * #{number}" : @output.invalid_number
     end
 
-    # If the number is not false checks if the number is different from zero.
-    # If true adds the division sign and a float to the string else prints error message.
+    # If the number is false prints error message else checks if the number is different from zero.
+    # If is true adds the division sign and a float at the end of array calculate else prints error message.
     def division(number)
-        unless !number
+        if number
             if number == 0
-                puts "Não é possível dividir por zero! Tente novamente."
+                @output.division_zero
             else
-                @calculate += " / #{number}"
+                @calculate << " / #{number}"
             end
+        else
+            @output.invalid_number
         end
+        
     end
 
-    # Prints the answer calculated by the eval method that receives the variable @calculate as a parameter.
+    #def delete_last
+
+
+    # Prints the answer calculated by the eval method that receives the variable calculate_string as a parameter.
     def equal
-        print "O resultado para (#{@calculate}) é -> "
-        puts eval @calculate
+        @output.message_result(calculate_string)
+        puts eval calculate_string
     end
 end
