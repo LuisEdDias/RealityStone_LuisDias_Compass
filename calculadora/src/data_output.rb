@@ -21,8 +21,8 @@ class Output
     end
 
     # Prints the menu.
-    def output_menu(calculate)
-        puts "Seu calculo até agora -> ( #{ calculate } )"
+    def output_menu(calculate_string)
+        puts "Seu calculo até agora -> (#{ calculate_string })"
         puts "*****************************************************************"
         puts "Selecione a operação:"
         puts "1 - SOMA"
@@ -88,7 +88,7 @@ class Output
     end
 
     # Prints the final message.
-    def output_bye
+    def output_exit
         puts "*****************************************************************"
         puts "Até logo!"
         puts "*****************************************************************"

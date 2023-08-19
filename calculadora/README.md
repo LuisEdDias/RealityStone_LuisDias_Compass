@@ -6,9 +6,9 @@ Este é um projeto simples de calculadora em Ruby. Ele permite que você realize
 
 Siga as etapas abaixo para instalar e executar a calculadora em seu computador:
 
-1. Certifique-se de ter o Ruby instalado em seu sistema. Se você não tiver, você pode baixá-lo e instalá-lo a partir do site oficial: [Ruby Lang](https://www.ruby-lang.org/)
+1. Certifique-se de ter o Ruby instalado em seu sistema. Se não tiver, você pode baixá-lo e instalá-lo a partir do site oficial: [Ruby Lang](https://www.ruby-lang.org/)
 
-2. Crie uma pasta onde você colocará os arquivos e abra um terminal do Git Bash a partir dela. Para isso voce também precisa ter o [Git](https://git-scm.com/) instalado em seu coputador.
+2. Crie uma pasta onde você colocará os arquivos e abra um terminal do Git Bash a partir dela. Para isso você também precisa ter o [Git](https://git-scm.com/) instalado em seu coputador.
 
 3. Digite estes comandos no terminal para clonar os arquivos da calculadora:
    ```
@@ -36,22 +36,24 @@ Siga as etapas abaixo para instalar e executar a calculadora em seu computador:
 ## Como Usar
 Após iniciar a calculadora, siga as instruções na linha de comando para realizar operações matemáticas:
 
-Digite 1 para começar uma operação ou 0 para sair.
+1. Digite 1 para começar uma operação ou 0 para sair.
 
-Se você optar por começar uma operação, digite um número e pressione Enter.
+2. Se você optar por começar uma operação, digite um número e pressione Enter.
 
-Escolha uma operação digitando o número correspondente.
+3. Escolha uma operação digitando o número correspondente.
 
-Digite outro número para continuar com a operação escolhida.
+4. Digite outro número para continuar com a operação escolhida.
 
-Repita os passos 3 e 4 o quanto quiser.
+5. Repita os passos 3 e 4 o quanto quiser.
 
-Digite 0 para obter o resultado da operação.
+6. Digite 0 para obter o resultado da operação.
+
+7. Digite 1 para começar uma nova operação ou 0 para sair.
 
 <img src="https://lh3.googleusercontent.com/pw/AIL4fc80arCQXXpIW6c_aR1HBxb70XYi7kJ4liJmlTIpIjr_pjGFQ-_vPa_yLI-0kBxp_COdrcbW_rhRceSLLKu2uDgULJvzBxXA6VHx-Vrp4Xc2GptzXYU-YPJ5e823gFTBVvTX9wftXf_EnxxAHv50PANo=w841-h689-s-no?authuser=0" tittle="calculadora">
 
 ## Referências
-### Ruby Style Guide
+### Airbnb - Ruby Style Guide
    * https://github.com/airbnb/ruby
    
 ### Válidação dos inputs
@@ -59,3 +61,4 @@ Digite 0 para obter o resultado da operação.
 
 ### Clonar pasta específica de um repositório
    * https://carlos-augusto-roque.medium.com/clonagem-de-reposit%C3%B3rio-no-github-como-clonar-apenas-uma-pasta-ou-um-arquivo-de-um-reposit%C3%B3rio-9baaad5ea3d8
+   

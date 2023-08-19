@@ -67,7 +67,7 @@ loop do
             end
         end
     elsif option == 0
-        output.output_bye
+        output.output_exit
         break
     else
         output.invalid_option
