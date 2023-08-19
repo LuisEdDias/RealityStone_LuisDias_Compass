@@ -10,10 +10,9 @@ class Input
     # If true returns a float else returns false.
     def input_float(number)
         begin
-            isValid = !!Float(number)
+            isValid = Float(number)
         rescue
             isValid = false
         end
-        isValid ? number.to_f : false
     end       
 end

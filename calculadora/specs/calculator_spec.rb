@@ -3,7 +3,7 @@ require_relative '../src/data_output'
 require_relative '../src/data_input'
 require_relative '../src/calc'
 
-describe 'Class Input -> input_start' do 
+describe 'Class Input -> input_option' do 
     before :each do
         @input = Input.new
     end

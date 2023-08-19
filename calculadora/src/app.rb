@@ -25,6 +25,7 @@ loop do
 
         # While number is false asks for a new number.
         while !number
+            output.invalid_number
             output.first_number
             number = input.input_float(gets.chomp)
         end
