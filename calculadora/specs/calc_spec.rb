@@ -6,17 +6,17 @@ describe 'Class Calc -> addition' do
         @calc = Calc.new
     end
 
-    it 'updates the var calculate for float' do
+    it 'should update the var calculate for float' do
         @calc.addition 5.0
         expect(@calc.calculate).to eq [' + 5.0']
     end
 
-    it 'updates the var calculate for negative float' do
+    it 'should update the var calculate for negative float' do
         @calc.addition -5.0
         expect(@calc.calculate).to eq [' + -5.0']
     end
 
-    it 'print error message for false' do
+    it 'should print error message for false' do
         expect { @calc.addition false }.to output(@calc.output.message).to_stdout
     end
 end
@@ -26,17 +26,17 @@ describe 'Class Calc -> subtraction' do
         @calc = Calc.new
     end
 
-    it 'updates the var calculate for float' do
+    it 'should update the var calculate for float' do
         @calc.subtraction 5.0
         expect(@calc.calculate).to eq [' - 5.0']
     end
 
-    it 'updates the var calculate for negative float' do
+    it 'should update the var calculate for negative float' do
         @calc.subtraction -5.0
         expect(@calc.calculate).to eq [' - -5.0']
     end
 
-    it 'print error message for false' do
+    it 'should print error message for false' do
         expect { @calc.subtraction false }.to output(@calc.output.message).to_stdout
     end
 end
@@ -46,17 +46,17 @@ describe 'Class Calc -> multiplication' do
         @calc = Calc.new
     end
 
-    it 'updates the var calculate for float' do
+    it 'should update the var calculate for float' do
         @calc.multiplication 5.0
         expect(@calc.calculate).to eq [' * 5.0']
     end
 
-    it 'updates the var calculate for negative float' do
+    it 'should update the var calculate for negative float' do
         @calc.multiplication -5.0
         expect(@calc.calculate).to eq [' * -5.0']
     end
 
-    it 'print error message for false' do
+    it 'should print error message for false' do
         expect { @calc.multiplication false }.to output(@calc.output.message).to_stdout
     end
 end
@@ -66,21 +66,21 @@ describe 'Class Calc -> division' do
         @calc = Calc.new
     end
 
-    it 'updates the var calculate for float' do
+    it 'should update the var calculate for float' do
         @calc.division 5.0
         expect(@calc.calculate).to eq [' / 5.0']
     end
 
-    it 'updates the var calculate for negative float' do
+    it 'should update the var calculate for negative float' do
         @calc.division -5.0
         expect(@calc.calculate).to eq [' / -5.0']
     end
 
-    it 'print error message for false' do
+    it 'should print error message for false' do
         expect { @calc.division false }.to output(@calc.output.message).to_stdout
     end
 
-    it 'print error message for division by zero' do
+    it 'should print error message for division by zero' do
         expect { @calc.division 0.0 }.to output(@calc.output.message).to_stdout
     end
 end
@@ -118,13 +118,23 @@ describe 'Class Calc -> equal' do
         @calc = Calc.new
     end
 
-    it 'prints the correct result for the calculation' do
+    it 'should print the correct result for the calculation' do
         @calc.start 1.0
         @calc.addition 5.0
         @calc.subtraction 3.0
         @calc.delete_last 1
         @calc.multiplication 4.0
         @calc.division 2.0
+        expect { @calc.equal }.to output(@calc.output.message).to_stdout
+    end
+
+    it 'should print the correct result for a calculation with signed numbers' do
+        @calc.start +1.0
+        @calc.addition -5.0
+        @calc.subtraction +3.0
+        @calc.delete_last 1
+        @calc.multiplication -4.0
+        @calc.division -2.0
         expect { @calc.equal }.to output(@calc.output.message).to_stdout
     end
 end
