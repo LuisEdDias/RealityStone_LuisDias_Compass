@@ -69,7 +69,7 @@ class Calc
 
     # Prints the answer calculated by the eval method that receives the variable calculate_string as a parameter.
     def equal
-        @output.message_result calculate_string
-        puts eval calculate_string
+        result = eval calculate_string
+        @output.message_result(calculate_string, result.to_s)
     end
 end

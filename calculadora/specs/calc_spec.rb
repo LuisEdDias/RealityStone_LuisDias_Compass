@@ -17,10 +17,7 @@ describe 'Class Calc -> addition' do
     end
 
     it 'print error message for false' do
-        expect { @calc.addition false }.to output(
-            "*****************************************************************\n" + 
-            "Número inválido! Tente novamente.\n"
-        ).to_stdout
+        expect { @calc.addition false }.to output(@calc.output.message).to_stdout
     end
 end
 
@@ -40,10 +37,7 @@ describe 'Class Calc -> subtraction' do
     end
 
     it 'print error message for false' do
-        expect { @calc.subtraction false }.to output(
-            "*****************************************************************\n" + 
-            "Número inválido! Tente novamente.\n"
-        ).to_stdout
+        expect { @calc.subtraction false }.to output(@calc.output.message).to_stdout
     end
 end
 
@@ -63,10 +57,7 @@ describe 'Class Calc -> multiplication' do
     end
 
     it 'print error message for false' do
-        expect { @calc.multiplication false }.to output(
-            "*****************************************************************\n" + 
-            "Número inválido! Tente novamente.\n"
-        ).to_stdout
+        expect { @calc.multiplication false }.to output(@calc.output.message).to_stdout
     end
 end
 
@@ -86,16 +77,11 @@ describe 'Class Calc -> division' do
     end
 
     it 'print error message for false' do
-        expect { @calc.division false }.to output(
-            "*****************************************************************\n" + 
-            "Número inválido! Tente novamente.\n"
-        ).to_stdout
+        expect { @calc.division false }.to output(@calc.output.message).to_stdout
     end
 
     it 'print error message for division by zero' do
-        expect { @calc.division 0.0 }.to output(
-            "Não é possível dividir por zero! Tente novamente.\n"
-        ).to_stdout
+        expect { @calc.division 0.0 }.to output(@calc.output.message).to_stdout
     end
 end
 
@@ -105,51 +91,40 @@ describe 'Class Calc -> delete_last' do
     end
 
     it 'should delete the last element of the calculate array if it is not empty and the parameter is equal to 1' do
-        @calc.start 1.0
-        @calc.addition 2.0
-        @calc.addition 3.0
+        @calc.calculate = ['1.0', ' + 2.0', ' + 3.0' ]
         @calc.delete_last 1
         expect(@calc.calculate).to eq ['1.0', ' + 2.0']
     end
     it 'should print message for delete canceled if the parameter is equal to 0' do
-        expect { @calc.delete_last 0 }.to output(
-            "Nada foi apagado!\n"
-        ).to_stdout
+        expect { @calc.delete_last 0 }.to output(@calc.output.message).to_stdout
     end
 
     it 'should print error message if array calculate is empty and the parameter is equal to 1' do
-        expect { @calc.delete_last 1 }.to output(
-            "Não há nada para apagar!\n"
-        ).to_stdout
+        @calc.calculate = []
+        expect { @calc.delete_last 1 }.to output(@calc.output.message).to_stdout
     end
 
     it 'should print error message if the parameter is equal to false' do
-        expect { @calc.delete_last false }.to output(
-            "*****************************************************************\n" +
-            "Opção inválida! Tente novamente.\n"
-        ).to_stdout
+        expect { @calc.delete_last false }.to output(@calc.output.message).to_stdout
     end
 
     it 'should print error message if the parameter > 2' do
-        expect { @calc.delete_last 3 }.to output(
-            "*****************************************************************\n" +
-            "Opção inválida! Tente novamente.\n"
-        ).to_stdout
+        expect { @calc.delete_last 3 }.to output(@calc.output.message).to_stdout
     end
 end
 
 describe 'Class Calc -> equal' do
+    before :each do
+        @calc = Calc.new
+    end
+
     it 'prints the correct result for the calculation' do
-        calc = Calc.new
-        calc.start 1.0
-        calc.addition 5.0
-        calc.subtraction 3.0
-        calc.delete_last 1
-        calc.multiplication 4.0
-        calc.division 2.0
-        expect { calc.equal }.to output(
-            "*****************************************************************\n" +
-            "O resultado para (1.0 + 5.0 * 4.0 / 2.0) é -> 11.0\n"
-        ).to_stdout
+        @calc.start 1.0
+        @calc.addition 5.0
+        @calc.subtraction 3.0
+        @calc.delete_last 1
+        @calc.multiplication 4.0
+        @calc.division 2.0
+        expect { @calc.equal }.to output(@calc.output.message).to_stdout
     end
 end

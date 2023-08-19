@@ -118,10 +118,12 @@ class Output
     end
 
     # Prints message for result.
-    def message_result(calculate_string)
+    def message_result(calculate_string, result)
         @message = (
             "*****************************************************************\n" +
-            "O resultado para (#{ calculate_string }) é -> "
+            "O resultado para (#{ calculate_string }) é -> " + 
+            result + 
+            "\n"
         )
         print @message 
     end
