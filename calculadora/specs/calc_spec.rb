@@ -1,6 +1,17 @@
 require 'rspec'
 require_relative '../src/calc'
 
+describe 'Class Calc -> calculate_string' do
+    before(:each) do
+        @calc = Calc.new
+    end
+
+    it 'should join the array calculate into a string' do
+        @calc.calculate = ['10', ' + 20', ' + 30']
+        expect(@calc.calculate_string).to eq '10 + 20 + 30'
+    end
+end
+
 describe 'Class Calc -> addition' do
     before(:each) do
         @calc = Calc.new
@@ -17,7 +28,10 @@ describe 'Class Calc -> addition' do
     end
 
     it 'should print error message for false' do
-        expect { @calc.addition false }.to output(@calc.output.message).to_stdout
+        expect { @calc.addition false }.to output(
+            "*****************************************************************\n" +
+            "Número inválido! Tente novamente.\n"
+        ).to_stdout
     end
 end
 
@@ -37,7 +51,10 @@ describe 'Class Calc -> subtraction' do
     end
 
     it 'should print error message for false' do
-        expect { @calc.subtraction false }.to output(@calc.output.message).to_stdout
+        expect { @calc.subtraction false }.to output(
+            "*****************************************************************\n" +
+            "Número inválido! Tente novamente.\n"
+        ).to_stdout
     end
 end
 
@@ -57,7 +74,10 @@ describe 'Class Calc -> multiplication' do
     end
 
     it 'should print error message for false' do
-        expect { @calc.multiplication false }.to output(@calc.output.message).to_stdout
+        expect { @calc.multiplication false }.to output(
+            "*****************************************************************\n" +
+            "Número inválido! Tente novamente.\n"
+        ).to_stdout
     end
 end
 
@@ -77,11 +97,16 @@ describe 'Class Calc -> division' do
     end
 
     it 'should print error message for false' do
-        expect { @calc.division false }.to output(@calc.output.message).to_stdout
+        expect { @calc.division false }.to output(
+            "*****************************************************************\n" +
+            "Número inválido! Tente novamente.\n"
+        ).to_stdout
     end
 
     it 'should print error message for division by zero' do
-        expect { @calc.division 0.0 }.to output(@calc.output.message).to_stdout
+        expect { @calc.division 0.0 }.to output(
+            "Não é possível dividir por zero! Tente novamente.\n"
+        ).to_stdout
     end
 end
 
@@ -96,20 +121,30 @@ describe 'Class Calc -> delete_last' do
         expect(@calc.calculate).to eq ['1.0', ' + 2.0']
     end
     it 'should print message for delete canceled if the parameter is equal to 0' do
-        expect { @calc.delete_last 0 }.to output(@calc.output.message).to_stdout
+        expect { @calc.delete_last 0 }.to output(
+            "Nada foi apagado!\n"
+        ).to_stdout
     end
 
     it 'should print error message if array calculate is empty and the parameter is equal to 1' do
         @calc.calculate = []
-        expect { @calc.delete_last 1 }.to output(@calc.output.message).to_stdout
+        expect { @calc.delete_last 1 }.to output(
+            "Não há nada para apagar!\n"
+        ).to_stdout
     end
 
     it 'should print error message if the parameter is equal to false' do
-        expect { @calc.delete_last false }.to output(@calc.output.message).to_stdout
+        expect { @calc.delete_last false }.to output(
+            "*****************************************************************\n" +
+            "Opção inválida! Tente novamente.\n"
+        ).to_stdout
     end
 
     it 'should print error message if the parameter > 2' do
-        expect { @calc.delete_last 3 }.to output(@calc.output.message).to_stdout
+        expect { @calc.delete_last 3 }.to output(
+            "*****************************************************************\n" +
+            "Opção inválida! Tente novamente.\n"
+        ).to_stdout
     end
 end
 
@@ -125,7 +160,13 @@ describe 'Class Calc -> equal' do
         @calc.delete_last 1
         @calc.multiplication 4.0
         @calc.division 2.0
-        expect { @calc.equal }.to output(@calc.output.message).to_stdout
+        result = "11.0"
+        expect { @calc.equal }.to output(
+            "*****************************************************************\n" +
+            "O resultado para (#{ @calc.calculate_string }) é -> " + 
+            result + 
+            "\n"
+        ).to_stdout
     end
 
     it 'should print the correct result for a calculation with signed numbers' do
@@ -135,6 +176,12 @@ describe 'Class Calc -> equal' do
         @calc.delete_last 1
         @calc.multiplication -4.0
         @calc.division -2.0
-        expect { @calc.equal }.to output(@calc.output.message).to_stdout
+        result = '-9.0'
+        expect { @calc.equal }.to output(
+            "*****************************************************************\n" +
+            "O resultado para (#{ @calc.calculate_string }) é -> " + 
+            result + 
+            "\n"
+        ).to_stdout
     end
 end

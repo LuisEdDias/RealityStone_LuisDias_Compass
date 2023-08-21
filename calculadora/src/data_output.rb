@@ -1,39 +1,37 @@
 # Handles data output.
 class Output
-    attr_accessor :message
-   
     # Prints the header.
     def output_head
-        @@message = (
+        message = (
             "*****************************************************************\n" +
             "---------------------------CALCULADORA---------------------------\n"
         )
-        print @@message
+        print message
     end
 
     # Prints the start message.
     def output_start
-        @@message = (
+        message = (
             "*****************************************************************\n" +
             "Deseja fazer uma operação matemática? Digite 1 - SIM ou 0 - NÃO\n" +
             "-> "
         )
-        print @@message
+        print message
     end
 
     # Ask for a number.
     def first_number
-        @@message = (
+        message = (
             "*****************************************************************\n" +
             "Digite o primeiro número:\n" +
             "-> "
         )
-        print @@message
+        print message
     end
 
     # Prints the menu.
     def output_menu(calculate_string)
-        @@message = (
+        message = (
             "Seu calculo até agora -> (#{ calculate_string })\n" +
             "*****************************************************************\n" +
             "Selecione a operação:\n" +
@@ -45,98 +43,98 @@ class Output
             "0 - RESULTADO\n" +
             "-> "
         )
-        print @@message
+        print message
     end
 
     # Ask for the next number.
     def next_number
-        @@message = (
+        message = (
             "*****************************************************************\n" +
             "Digite o próximo número:\n" +
             "-> "
         )
-        print @@message
+        print message
     end
 
     # Prints error message for invalid operation.
     def invalid_operation
-        @@message = (
+        message = (
             "*****************************************************************\n" +
             "Operação inválida! Tente novamente.\n"
         )
-        print @@message
+        print message
     end 
 
     # Prints error message for invalid option.
     def invalid_option
-        @@message = (
+        message = (
             "*****************************************************************\n" +
             "Opção inválida! Tente novamente.\n"
         )
-        print @@message   
+        print message   
     end 
 
     # Prints error message for invalid number.
     def invalid_number
-        @@message = (
+        message = (
             "*****************************************************************\n" +
             "Número inválido! Tente novamente.\n"
         )
-        print @@message  
+        print message  
     end 
 
     # Prints error message for division by zero.
     def division_zero
-        @@message = (
+        message = (
             "Não é possível dividir por zero! Tente novamente.\n"
         )
-        print @@message
+        print message
     end
 
     # Prints message to confirme delete.
     def delete_confirme
-        @@message = (
+        message = (
             "*****************************************************************\n" +
             "Você tem certeza que quer apagar a última operação? Digite 1 - SIM ou 0 - NÃO\n" +
             "-> "
         )
-        print @@message   
+        print message   
     end
 
     # Prints message for delete canceled.
     def delete_canceled
-        @@message = (
+        message = (
             "Nada foi apagado!\n"
         )
-        print @@message
+        print message
     end
 
     # Prints error message for delete.
     def delete_error
-        @@message = (
+        message = (
             "Não há nada para apagar!\n"
         )
-        print @@message
+        print message
     end
 
     # Prints message for result.
     def message_result(calculate_string, result)
-        @@message = (
+        message = (
             "*****************************************************************\n" +
             "O resultado para (#{ calculate_string }) é -> " + 
             result + 
             "\n"
         )
-        print @@message 
+        print message 
     end
 
     # Prints the final message.
     def output_exit
-        @@message = (
+        message = (
             "*****************************************************************\n" +
             "Até logo!\n" +
             "*****************************************************************\n"
         )
-        print @@message
+        print message
     end
 end
